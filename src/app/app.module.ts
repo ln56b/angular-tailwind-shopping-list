@@ -3,16 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ShoppingListsComponent } from './shopping-list/shopping-lists/shopping-lists.component';
+import { ShoppingListDetailComponent } from './shopping-list/shopping-list-detail/shopping-list-detail.component';
+import { ShoppingListFormComponent } from './shopping-list/shopping-list-form/shopping-list-form.component';
+import { ItemFormComponent } from './item/item-form/item-form.component';
+import { ItemsComponent } from './item/items/items.component';
+import { ItemDetailComponent } from './item/item-detail/item-detail.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, ShoppingListsComponent, ShoppingListDetailComponent, ShoppingListFormComponent, ItemFormComponent, ItemsComponent, ItemDetailComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
