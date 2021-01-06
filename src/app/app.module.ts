@@ -9,10 +9,19 @@ import { ShoppingListFormComponent } from './shopping-list/shopping-list-form/sh
 import { ItemFormComponent } from './item/item-form/item-form.component';
 import { ItemsComponent } from './item/items/items.component';
 import { ItemDetailComponent } from './item/item-detail/item-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, ShoppingListsComponent, ShoppingListDetailComponent, ShoppingListFormComponent, ItemFormComponent, ItemsComponent, ItemDetailComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    ShoppingListsComponent,
+    ShoppingListDetailComponent,
+    ShoppingListFormComponent,
+    ItemFormComponent,
+    ItemsComponent,
+    ItemDetailComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

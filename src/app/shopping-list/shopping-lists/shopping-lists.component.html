@@ -1,1 +1,23 @@
-<p>shopping-lists works!</p>
+<h2>Lists</h2>
+<input type="text" placeholder="shopping list name" #listName />
+<button (click)="addList(listName.value); listName.value = ''">+</button>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Client</th>
+        <th>Shop</th>
+        <th>Total</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let list of lists">
+      <td>{{ list.name }}</td>
+      <td>{{ list.client }}</td>
+      <td>{{ list.shop }}</td>
+      <td>{{ list.total }}</td>
+      <td>{{ list.date }}</td>
+    </tbody>
+  </table>
+</div>
