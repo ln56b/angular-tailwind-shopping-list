@@ -1,23 +1,27 @@
-<h2>Lists</h2>
-<input type="text" placeholder="shopping list name" #listName />
-<button (click)="addList(listName.value); listName.value = ''">+</button>
-<div>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Client</th>
-        <th>Shop</th>
-        <th>Total</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let list of lists">
-      <td>{{ list.name }}</td>
-      <td>{{ list.client }}</td>
-      <td>{{ list.shop }}</td>
-      <td>{{ list.total }}</td>
-      <td>{{ list.date }}</td>
-    </tbody>
-  </table>
+<div class="min-h-screen bg-yellow-300 py-3 flex flex-col items-center">
+  <h2 class="p-6 text-xl text-blue-900 font-bold">Lists</h2>
+  <div class="min-w-full mb-3 px-6 flex flex-row">
+    <input
+      type="text"
+      placeholder="Placeholder"
+      #listName
+      class="p-3 placeholder-gray-400 text-gray-700 w-5/6 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline"
+    />
+    <button (click)="addList(listName.value); listName.value = ''">
+      <span class="text-blue-900 ml-2">
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </span>
+    </button>
+  </div>
+  <div class="min-w-full px-6">
+    <ul class="min-w-full" *ngFor="let list of lists">
+      <li class="p-2 my-1 text-white bg-blue-900 rounded shadow">
+        {{ list.name }}
+        <span
+          class="italic pr-2 float-right font-extralight text-sm text-gray-300"
+          >{{ list.createdAt | date }}</span
+        >
+      </li>
+    </ul>
+  </div>
 </div>

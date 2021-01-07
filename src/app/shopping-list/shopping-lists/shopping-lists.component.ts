@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingList } from 'src/app/models/ShoppingList.model';
 import { ShoppingListService } from 'src/app/services/shopping-list.service';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-shopping-lists',
@@ -9,6 +10,7 @@ import { ShoppingListService } from 'src/app/services/shopping-list.service';
 })
 export class ShoppingListsComponent implements OnInit {
   lists: ShoppingList[];
+  faPlus = faPlus;
 
   constructor(private shoppingListService: ShoppingListService) {}
 

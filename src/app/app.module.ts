@@ -10,6 +10,10 @@ import { ItemFormComponent } from './item/item-form/item-form.component';
 import { ItemsComponent } from './item/items/items.component';
 import { ItemDetailComponent } from './item/item-detail/item-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,8 +25,17 @@ import { HttpClientModule } from '@angular/common/http';
     ItemsComponent,
     ItemDetailComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FontAwesomeModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private library: FaIconLibrary) {
+    library.addIcons();
+  }
+}
