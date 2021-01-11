@@ -13,4 +13,8 @@
   .td {
     @apply border px-2 py-1;
   }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-primary text-white font-semibold rounded-md shadow-md hover:bg-hover;
+  }
 }
