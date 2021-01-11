@@ -28,6 +28,7 @@ export class ShoppingListsComponent implements OnInit {
       .subscribe((list) => {
         this.lists.push(list);
       });
+    this.refreshData();
   }
 
   protected refreshData(): void {
