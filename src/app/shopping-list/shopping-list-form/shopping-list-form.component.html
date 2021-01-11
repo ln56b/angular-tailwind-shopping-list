@@ -1,1 +1,72 @@
-<p>shopping-list-form works!</p>
+<div class="flex flex-col px-3 py-2 bg-secondary min-h-screen">
+  <header class="flex flex-row mt-3 mb-4">
+    <a [routerLink]="['/', 'lists']">
+      <span class="text-primary">
+        <fa-icon [icon]="backIcon"></fa-icon>
+      </span>
+    </a>
+    <h2 class="text-lg ml-3 text-primary">{{ getTitle() }}</h2>
+  </header>
+  <main>
+    <form
+      *ngIf="formGroup"
+      #ngForm="ngForm"
+      novalidate
+      [formGroup]="formGroup"
+      (ngSubmit)="onSubmit()"
+      class="flex flex-col"
+    >
+      <div class="flex flex-col md:flex-row gap-3 mdjustify-center">
+        <div class="flex flex-col sm:flex-row justify-evenly gap-3">
+          <label class="block">
+            <input
+              type="text"
+              class="form-input mt-1 block w-full"
+              placeholder="Name *"
+              formControlName="name"
+              required
+            />
+          </label>
+          <div *ngIf="ngForm.submitted && ngForm.name.errors.required">
+            This field is required
+          </div>
+          <label class="block">
+            <input
+              type="text"
+              class="form-input mt-1 block w-full"
+              placeholder="Client"
+              formControlName="client"
+            />
+          </label>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-evenly gap-3">
+          <label class="block">
+            <input
+              type="text"
+              class="form-input mt-1 block w-full"
+              placeholder="Shop"
+              formControlName="shop"
+            />
+          </label>
+          <label class="block">
+            <input
+              type="number"
+              class="form-input mt-1 block w-full"
+              placeholder="Total"
+              formControlName="total"
+            />
+          </label>
+        </div>
+      </div>
+      <div>
+        <button
+          class="btn-primary float-right mt-3"
+          type="submit"
+          [disabled]="!formGroup.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </main>
+</div>
