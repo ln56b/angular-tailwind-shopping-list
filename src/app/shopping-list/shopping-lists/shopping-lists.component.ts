@@ -5,6 +5,7 @@ import {
   faEraser,
   faEllipsisV,
   faPlus,
+  faEdit,
 } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 
@@ -18,8 +19,9 @@ export class ShoppingListsComponent implements OnInit {
   list: ShoppingList;
   faPlus = faPlus;
   faMore = faEllipsisV;
+  faEdit = faEdit;
   faDelete = faTrashAlt;
-  faEdit = faEraser;
+  faMarkout = faEraser;
   showModal: boolean = false;
 
   constructor(private shoppingListService: ShoppingListService) {}

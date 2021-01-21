@@ -13,9 +13,8 @@
       </span>
     </button>
   </div>
-  <div class="min-w-full px-6 relative">
+  <div class="min-w-full px-6 relative text-sm sm:text-base">
     <ul class="min-w-full flex flex-row" *ngFor="let list of lists">
-      <!-- <a [routerLink]="['edit', list._id]"> -->
       <li
         [ngClass]="list.isMarkedOut === true ? 'line-through' : none"
         class="p-2 my-1 text-secondary bg-primary rounded shadow w-5/6"
@@ -38,15 +37,19 @@
           </span>
         </button>
       </div>
-      <!-- </a> -->
     </ul>
     <dialog
       *ngIf="showModal"
       class="overflow-x-hidden overflow-y-auto absolute inset-0 z-50 outline-none focus:outline-none rounded shadow-sm flex flex-row justify-between gap-4"
     >
-      <button (click)="markoutList()">
+      <a [routerLink]="['edit', list._id]">
         <span class="text-primary ml-2">
           <fa-icon [icon]="faEdit"></fa-icon>
+        </span>
+      </a>
+      <button (click)="markoutList()">
+        <span class="text-primary ml-2">
+          <fa-icon [icon]="faMarkout"></fa-icon>
         </span>
       </button>
       <button (click)="deleteList()">

@@ -48,7 +48,7 @@ export class ShoppingListFormComponent implements OnInit {
     if (this.formGroup.valid) {
       this.shoppingListService.save(this.formGroup.value).subscribe({
         next: () => {
-          this.router.navigate(['/', 'lists', this.id]);
+          this.router.navigate(['/', 'lists']);
         },
         error: () => {
           console.log('There has been an error');

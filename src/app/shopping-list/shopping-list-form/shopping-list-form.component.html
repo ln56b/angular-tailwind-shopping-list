@@ -16,7 +16,7 @@
       (ngSubmit)="onSubmit()"
       class="flex flex-col"
     >
-      <div class="flex flex-col md:flex-row gap-3 mdjustify-center">
+      <div class="flex flex-col md:flex-row gap-3 md:justify-center">
         <div class="flex flex-col sm:flex-row justify-evenly gap-3">
           <label class="block">
             <input
@@ -42,14 +42,6 @@
         <div class="flex flex-col sm:flex-row justify-evenly gap-3">
           <label class="block">
             <input
-              type="text"
-              class="form-input mt-1 block w-full"
-              placeholder="Shop"
-              formControlName="shop"
-            />
-          </label>
-          <label class="block">
-            <input
               type="number"
               class="form-input mt-1 block w-full"
               placeholder="Total"
@@ -58,9 +50,9 @@
           </label>
         </div>
       </div>
-      <div>
+      <div class="self-center">
         <button
-          class="btn-primary float-right mt-3"
+          class="btn-primary mt-5"
           type="submit"
           [disabled]="!formGroup.valid"
         >
