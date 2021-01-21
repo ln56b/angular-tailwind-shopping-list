@@ -48,7 +48,7 @@ export class ShoppingListFormComponent implements OnInit {
     if (this.formGroup.valid) {
       this.shoppingListService.save(this.formGroup.value).subscribe({
         next: () => {
-          this.router.navigate(['/', 'lists']);
+          this.router.navigate(['/', 'lists', this.id]);
         },
         error: () => {
           console.log('There has been an error');
@@ -62,18 +62,18 @@ export class ShoppingListFormComponent implements OnInit {
       _id: undefined,
       name: undefined,
       client: undefined,
-      shop: undefined,
       total: undefined,
       createdAt: undefined,
+      isMarkedOut: false,
     }
   ): void {
     this.formGroup = this.fb.group({
       _id: [list._id],
       name: [list.name, Validators.required],
       client: [list.client],
-      shop: [list.shop],
       total: [list.total],
       createdAt: [list.createdAt],
+      isMarkedOut: [list.isMarkedOut],
     });
   }
 

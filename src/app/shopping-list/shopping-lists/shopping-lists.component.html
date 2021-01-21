@@ -13,17 +13,47 @@
       </span>
     </button>
   </div>
-  <div class="min-w-full px-6">
-    <ul class="min-w-full" *ngFor="let list of lists">
-      <a [routerLink]="['edit', list._id]">
-        <li class="p-2 my-1 text-secondary bg-primary rounded shadow">
-          {{ list.name }}
-          <span
-            class="italic pr-2 float-right font-extralight text-sm text-lightGray"
-            >{{ list.createdAt | date }}</span
-          >
-        </li>
-      </a>
+  <div class="min-w-full px-6 relative">
+    <ul class="min-w-full flex flex-row" *ngFor="let list of lists">
+      <!-- <a [routerLink]="['edit', list._id]"> -->
+      <li
+        [ngClass]="list.isMarkedOut === true ? 'line-through' : none"
+        class="p-2 my-1 text-secondary bg-primary rounded shadow w-5/6"
+      >
+        {{ list.name }}
+        <span *ngIf="list.client" class="text-white"> - {{ list.client }}</span>
+        <span *ngIf="list.total" class="font-semibold">
+          - {{ list.total }}€</span
+        >
+        <span
+          class="italic float-right pr-2 font-extralight text-sm text-lightGray"
+          >{{ list.createdAt | date }}</span
+        >
+      </li>
+
+      <div class="w-1/6 self-center pl-1">
+        <button (click)="toggleModal(list)">
+          <span class="text-primary ml-2">
+            <fa-icon [icon]="faMore"></fa-icon>
+          </span>
+        </button>
+      </div>
+      <!-- </a> -->
     </ul>
+    <dialog
+      *ngIf="showModal"
+      class="overflow-x-hidden overflow-y-auto absolute inset-0 z-50 outline-none focus:outline-none rounded shadow-sm flex flex-row justify-between gap-4"
+    >
+      <button (click)="markoutList()">
+        <span class="text-primary ml-2">
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </span>
+      </button>
+      <button (click)="deleteList()">
+        <span class="text-primary ml-2">
+          <fa-icon [icon]="faDelete"></fa-icon>
+        </span>
+      </button>
+    </dialog>
   </div>
 </div>
