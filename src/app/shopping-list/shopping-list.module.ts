@@ -6,6 +6,7 @@ import { ShoppingListDetailComponent } from './shopping-list-detail/shopping-lis
 import { ShoppingListFormComponent } from './shopping-list-form/shopping-list-form.component';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModalModule } from '../modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     RouterModule,
     FontAwesomeModule,
+    ModalModule,
   ],
 })
 export class ShoppingListModule {}
