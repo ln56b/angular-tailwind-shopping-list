@@ -65,6 +65,7 @@ export class ShoppingListFormComponent implements OnInit {
       total: undefined,
       createdAt: undefined,
       isMarkedOut: false,
+      items: [],
     }
   ): void {
     this.formGroup = this.fb.group({
@@ -74,6 +75,7 @@ export class ShoppingListFormComponent implements OnInit {
       total: [list.total],
       createdAt: [list.createdAt],
       isMarkedOut: [list.isMarkedOut],
+      items: [],
     });
   }
 

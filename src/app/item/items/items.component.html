@@ -1,7 +1,55 @@
-<p>items works!</p>
-<div>
-  <p>{{ itemsInList[0].shoppingList.name }}</p>
+<div class="min-h-screen bg-secondary py-3 flex flex-col items-center">
+  <ng-container *ngIf="list; else noList">
+    <h2 class="p-6 text-xl text-primary font-bold">
+      {{ list.name }}
+    </h2>
+  </ng-container>
+  <ng-template #noList>
+    <h2 class="p-6 text-xl text-primary font-bold">This list does not exist</h2>
+  </ng-template>
+  <div class="min-w-full mb-3 px-6 flex flex-row">
+    <input
+      type="text"
+      placeholder="Item name"
+      #itemName
+      class="p-3 text-darkGray w-5/6 bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline"
+    />
+    <button (click)="addItem(list._id, itemName.value); itemName.value = ''">
+      <span class="text-primary ml-2">
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </span>
+    </button>
+  </div>
+  <div *ngIf="list" class="min-w-full px-6 relative text-sm sm:text-base">
+    <ul class="min-w-full flex flex-row" *ngFor="let item of list.items">
+      <li
+        [ngClass]="list.isMarkedOut === true ? 'line-through' : none"
+        class="p-2 my-1 text-secondary bg-primary rounded shadow w-5/6"
+      >
+        {{ item.name }}
+        <span *ngIf="item.quantity" class="text-white"
+          >-{{ item.quantity }}</span
+        >
+        <span *ngIf="item.unit" class="text-white">-{{ item.unit }}</span>
+      </li>
+
+      <div class="w-1/6 self-center pl-1">
+        <button (click)="toggleModal(item)">
+          <span class="text-primary ml-2">
+            <fa-icon [icon]="faMore"></fa-icon>
+          </span>
+        </button>
+      </div>
+      <dialog
+        *ngIf="showModal"
+        class="overflow-x-hidden overflow-y-auto absolute inset-0 z-50 outline-none focus:outline-none rounded shadow-sm flex flex-row justify-between gap-4"
+      >
+        <a [routerLink]="[item._id, 'edit']">
+          <span class="text-primary ml-2">
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </span>
+        </a>
+      </dialog>
+    </ul>
+  </div>
 </div>
-<ul *ngFor="let item of itemsInList">
-  <li>{{ item.name }}</li>
-</ul>
