@@ -21,10 +21,10 @@ export class ShoppingListService {
       catchError(this.handleError('findAll', []))
     );
   }
-  getList(id: string): Observable<ShoppingList> {
-    const url = `${apiUrl}/${id}`;
+  getListWithItems(id: string): Observable<ShoppingList> {
+    const url = `${apiUrl}/${id}/items`;
     return this.http.get<ShoppingList>(url).pipe(
-      tap((list: ShoppingList) => console.log(`fetched list id: ${id}`)),
+      tap((list: ShoppingList) => console.log(`fetched list id: ${list._id}`)),
       catchError(this.handleError<ShoppingList>('findOne'))
     );
   }

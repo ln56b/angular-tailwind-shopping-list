@@ -6,6 +6,7 @@ import {
   faEllipsisV,
   faPlus,
   faEdit,
+  faList,
 } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 
@@ -21,6 +22,7 @@ export class ShoppingListsComponent implements OnInit {
   faMore = faEllipsisV;
   faEdit = faEdit;
   faDelete = faTrashAlt;
+  faList = faList;
   faMarkout = faEraser;
   showModal: boolean = false;
 

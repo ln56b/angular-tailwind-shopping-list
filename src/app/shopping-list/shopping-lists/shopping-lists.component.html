@@ -42,7 +42,12 @@
       *ngIf="showModal"
       class="overflow-x-hidden overflow-y-auto absolute inset-0 z-50 outline-none focus:outline-none rounded shadow-sm flex flex-row justify-between gap-4"
     >
-      <a [routerLink]="['edit', list._id]">
+      <a [routerLink]="[list._id, 'items']">
+        <span class="text-primary ml-2">
+          <fa-icon [icon]="faList"></fa-icon>
+        </span>
+      </a>
+      <a [routerLink]="[list._id, 'edit']">
         <span class="text-primary ml-2">
           <fa-icon [icon]="faEdit"></fa-icon>
         </span>

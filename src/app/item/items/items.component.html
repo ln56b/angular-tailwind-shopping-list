@@ -1,1 +1,7 @@
 <p>items works!</p>
+<div>
+  <p>{{ itemsInList[0].shoppingList.name }}</p>
+</div>
+<ul *ngFor="let item of itemsInList">
+  <li>{{ item.name }}</li>
+</ul>

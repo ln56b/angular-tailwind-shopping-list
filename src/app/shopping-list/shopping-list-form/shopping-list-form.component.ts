@@ -36,7 +36,7 @@ export class ShoppingListFormComponent implements OnInit {
       this.initForm();
     } else {
       this.isUpdate = true;
-      this.shoppingListService.getList(this.id).subscribe((list) => {
+      this.shoppingListService.getListWithItems(this.id).subscribe((list) => {
         this.list = list;
         this.initForm(list);
       });
