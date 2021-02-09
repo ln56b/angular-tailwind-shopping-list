@@ -27,7 +27,7 @@ export class ItemFormComponent implements OnInit {
   ) {}
 
   getTitle(): string {
-    return this.itemId ? 'Modifier le produit' : 'Ajouter un produit';
+    return this.itemId ? 'Update item' : 'Add item';
   }
 
   ngOnInit(): void {

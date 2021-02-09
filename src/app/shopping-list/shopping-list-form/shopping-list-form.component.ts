@@ -26,7 +26,7 @@ export class ShoppingListFormComponent implements OnInit {
   ) {}
 
   getTitle(): string {
-    return this.id ? 'Modifier la liste' : 'Ajouter une liste';
+    return this.id ? 'Update list' : 'Add list';
   }
 
   ngOnInit(): void {

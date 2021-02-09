@@ -16,7 +16,7 @@
       </h2>
     </ng-template>
   </header>
-  <div class="min-w-full mb-3 px-6 flex flex-row">
+  <div *ngIf="list" class="min-w-full mb-3 px-6 flex flex-row">
     <input
       type="text"
       placeholder="Item name"
