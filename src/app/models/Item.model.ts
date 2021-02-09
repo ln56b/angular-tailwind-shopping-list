@@ -5,5 +5,4 @@ export class Item {
   quantity: number;
   unit: string;
   isMarkedOut: boolean = false;
-  shoppingListId: string;
 }

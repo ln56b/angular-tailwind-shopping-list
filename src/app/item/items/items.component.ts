@@ -76,7 +76,9 @@ export class ItemsComponent implements OnInit {
     this.shoppingListService
       .getListWithItems(this.id)
       .subscribe((list: ShoppingList) => {
-        list.items.sort((a, b) => (a.isMarkedOut > b.isMarkedOut ? 1 : -1));
+        if (list.items.length) {
+          list.items.sort((a, b) => (a.isMarkedOut > b.isMarkedOut ? 1 : -1));
+        }
         this.items = list.items;
         this.list = list;
       });

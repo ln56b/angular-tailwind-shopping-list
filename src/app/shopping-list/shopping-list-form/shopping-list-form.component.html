@@ -27,7 +27,7 @@
               required
             />
           </label>
-          <div *ngIf="ngForm.submitted && ngForm.name.errors.required">
+          <div *ngIf="ngForm.submitted && ngForm.name?.errors.required">
             This field is required
           </div>
           <label class="block">

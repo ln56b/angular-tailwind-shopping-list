@@ -63,7 +63,9 @@ export class ShoppingListsComponent implements OnInit {
 
   protected refreshData(): void {
     this.shoppingListService.findAll().subscribe((lists: ShoppingList[]) => {
-      lists.sort((a, b) => (a.isMarkedOut > b.isMarkedOut ? 1 : -1));
+      if (lists.length) {
+        lists.sort((a, b) => (a.isMarkedOut > b.isMarkedOut ? 1 : -1));
+      }
       this.lists = lists;
     });
   }
