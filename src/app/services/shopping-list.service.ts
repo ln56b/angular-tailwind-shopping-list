@@ -44,11 +44,11 @@ export class ShoppingListService {
     );
   }
 
-  deleteList(id: string): Observable<ShoppingList> {
+  deleteList(id: string): Observable<void> {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.delete<ShoppingList>(url, httpOptions).pipe(
+    return this.http.delete<void>(url, httpOptions).pipe(
       tap((_) => console.log(`deleted list id=${id}`)),
-      catchError(this.handleError<ShoppingList>('deleteList'))
+      catchError(this.handleError<void>('deleteList'))
     );
   }
 

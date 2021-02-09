@@ -3,7 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Item } from 'src/app/models/Item.model';
 import { ShoppingList } from 'src/app/models/ShoppingList.model';
 import { ShoppingListService } from 'src/app/services/shopping-list.service';
-import { faEllipsisV, faPlus, faEdit } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEraser,
+  faEllipsisV,
+  faPlus,
+  faEdit,
+  faTenge,
+} from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { ItemService } from 'src/app/services/item.service';
 
 @Component({
@@ -19,6 +26,9 @@ export class ItemsComponent implements OnInit {
   faEdit = faEdit;
   faMore = faEllipsisV;
   faPlus = faPlus;
+  faMove = faTenge;
+  faDelete = faTrashAlt;
+  faMarkout = faEraser;
   showModal: boolean = false;
 
   constructor(
@@ -43,6 +53,17 @@ export class ItemsComponent implements OnInit {
     });
   }
 
+  deleteItem(): void {
+    this.items = this.items.filter((i) => i !== this.item);
+    this.itemService.deleteItem(this.list._id, this.item._id).subscribe();
+    this.showModal = false;
+  }
+
+  markoutItem(): void {
+    this.item.isMarkedOut = true;
+    this.showModal = false;
+  }
+
   toggleModal(item: Item) {
     this.showModal = !this.showModal;
     this.item = item;
@@ -52,6 +73,7 @@ export class ItemsComponent implements OnInit {
     this.shoppingListService
       .getListWithItems(this.id)
       .subscribe((list: ShoppingList) => {
+        list.items.sort((a, b) => (a.isMarkedOut > b.isMarkedOut ? 1 : -1));
         this.items = list.items;
         this.list = list;
       });

@@ -23,7 +23,7 @@
   <div *ngIf="list" class="min-w-full px-6 relative text-sm sm:text-base">
     <ul class="min-w-full flex flex-row" *ngFor="let item of list.items">
       <li
-        [ngClass]="list.isMarkedOut === true ? 'line-through' : none"
+        [ngClass]="item.isMarkedOut === true ? 'line-through' : none"
         class="p-2 my-1 text-secondary bg-primary rounded shadow w-5/6"
       >
         {{ item.name }}
@@ -33,7 +33,8 @@
         <span *ngIf="item.unit" class="text-white">-{{ item.unit }}</span>
       </li>
 
-      <div class="w-1/6 self-center pl-1">
+      <!-- Actions & Modal -->
+      <div class="w-1/12 self-center pl-1">
         <button (click)="toggleModal(item)">
           <span class="text-primary ml-2">
             <fa-icon [icon]="faMore"></fa-icon>
@@ -49,7 +50,24 @@
             <fa-icon [icon]="faEdit"></fa-icon>
           </span>
         </a>
+        <button (click)="markoutItem()">
+          <span class="text-primary ml-2">
+            <fa-icon [icon]="faMarkout"></fa-icon>
+          </span>
+        </button>
+        <button (click)="deleteItem()">
+          <span class="text-primary ml-2">
+            <fa-icon [icon]="faDelete"></fa-icon>
+          </span>
+        </button>
       </dialog>
+
+      <!-- Move item -->
+      <div class="w-1/12 self-center">
+        <span class="text-primary ml-2">
+          <fa-icon [icon]="faMove"></fa-icon>
+        </span>
+      </div>
     </ul>
   </div>
 </div>
