@@ -11,7 +11,7 @@ import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./shopping-list-form.component.scss'],
 })
 export class ShoppingListFormComponent implements OnInit {
-  backIcon = faLongArrowAltLeft;
+  faBack = faLongArrowAltLeft;
 
   formGroup: FormGroup;
   id: string;

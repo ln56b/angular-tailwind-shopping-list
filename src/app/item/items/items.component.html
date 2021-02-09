@@ -1,12 +1,21 @@
 <div class="min-h-screen bg-secondary py-3 flex flex-col items-center">
-  <ng-container *ngIf="list; else noList">
-    <h2 class="p-6 text-xl text-primary font-bold">
-      {{ list.name }}
-    </h2>
-  </ng-container>
-  <ng-template #noList>
-    <h2 class="p-6 text-xl text-primary font-bold">This list does not exist</h2>
-  </ng-template>
+  <header class="flex flex-row mt-3 mb-4">
+    <a [routerLink]="['/', 'lists']">
+      <span class="text-primary fixed left-8">
+        <fa-icon [icon]="faBack"></fa-icon>
+      </span>
+    </a>
+    <ng-container *ngIf="list; else noList">
+      <h2 class="text-xl ml-3 text-primary font-bold">
+        {{ list.name }}
+      </h2>
+    </ng-container>
+    <ng-template #noList>
+      <h2 class="p-6 text-xl text-primary font-bold">
+        This list does not exist
+      </h2>
+    </ng-template>
+  </header>
   <div class="min-w-full mb-3 px-6 flex flex-row">
     <input
       type="text"

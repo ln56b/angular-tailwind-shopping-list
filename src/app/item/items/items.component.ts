@@ -9,6 +9,7 @@ import {
   faPlus,
   faEdit,
   faTenge,
+  faLongArrowAltLeft,
 } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { ItemService } from 'src/app/services/item.service';
@@ -23,13 +24,15 @@ export class ItemsComponent implements OnInit {
   item: Item;
   items: Item[];
   list: ShoppingList;
+  showModal: boolean = false;
+
+  faBack = faLongArrowAltLeft;
   faEdit = faEdit;
   faMore = faEllipsisV;
   faPlus = faPlus;
   faMove = faTenge;
   faDelete = faTrashAlt;
   faMarkout = faEraser;
-  showModal: boolean = false;
 
   constructor(
     private itemService: ItemService,
