@@ -42,7 +42,7 @@
         <span *ngIf="item.unit" class="text-white">-{{ item.unit }}</span>
       </li>
 
-      <!-- Actions & Modal -->
+      <!-- Toggle modal -->
       <div class="w-1/12 self-center pl-1">
         <button (click)="toggleModal(item)">
           <span class="text-primary ml-2">
@@ -50,26 +50,6 @@
           </span>
         </button>
       </div>
-      <dialog
-        *ngIf="showModal"
-        class="overflow-x-hidden overflow-y-auto absolute inset-0 z-50 outline-none focus:outline-none rounded shadow-sm flex flex-row justify-between gap-4"
-      >
-        <a [routerLink]="[item._id, 'edit']">
-          <span class="text-primary ml-2">
-            <fa-icon [icon]="faEdit"></fa-icon>
-          </span>
-        </a>
-        <button (click)="markoutItem()">
-          <span class="text-primary ml-2">
-            <fa-icon [icon]="faMarkout"></fa-icon>
-          </span>
-        </button>
-        <button (click)="deleteItem()">
-          <span class="text-primary ml-2">
-            <fa-icon [icon]="faDelete"></fa-icon>
-          </span>
-        </button>
-      </dialog>
 
       <!-- Move item -->
       <div class="w-1/12 self-center">
@@ -78,5 +58,27 @@
         </span>
       </div>
     </ul>
+
+    <!-- Modal -->
+    <dialog
+      *ngIf="showModal"
+      class="overflow-x-hidden overflow-y-auto absolute inset-0 z-50 outline-none focus:outline-none rounded shadow-sm flex flex-row justify-between gap-4"
+    >
+      <a [routerLink]="[item._id, 'edit']">
+        <span class="text-primary ml-2">
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </span>
+      </a>
+      <button (click)="markoutItem()">
+        <span class="text-primary ml-2">
+          <fa-icon [icon]="faMarkout"></fa-icon>
+        </span>
+      </button>
+      <button (click)="deleteItem()">
+        <span class="text-primary ml-2">
+          <fa-icon [icon]="faDelete"></fa-icon>
+        </span>
+      </button>
+    </dialog>
   </div>
 </div>

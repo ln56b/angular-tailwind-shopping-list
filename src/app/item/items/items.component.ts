@@ -50,10 +50,12 @@ export class ItemsComponent implements OnInit {
     if (!name) {
       return;
     }
-    this.itemService.addItem(listId, { name } as Item).subscribe((item) => {
-      this.items.push(item);
-      this.refreshData();
-    });
+    this.itemService
+      .addItem(listId, { name } as Item)
+      .subscribe((item: Item) => {
+        this.items.push(item);
+        this.refreshData();
+      });
   }
 
   deleteItem(): void {

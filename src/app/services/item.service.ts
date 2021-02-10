@@ -35,7 +35,7 @@ export class ItemService {
   updateItem(listId: string, item: Item): Observable<Item> {
     const url = `${this.apiUrl}/${listId}/items/${item._id}`;
     return this.http.put<Item>(url, item, httpOptions).pipe(
-      tap((item: Item) => console.log(`ùpdated item id: ${item._id}`)),
+      tap((item: Item) => console.log(`updated item id: ${item._id}`)),
       catchError(this.handleError<Item>('updateItem'))
     );
   }
