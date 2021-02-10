@@ -8,11 +8,11 @@
 
 - Available actions : add, edit, delete, markup 
 
-- Connects with a Node.JS back-end (MongoDB database)
+- [Linked repo](https://github.com/ln56b/nestjs-mongodb-express-shopping-list)
+: Connects with a Node.JS back-end (MongoDB database)
 
 **Technologies**
 
 - Angular 10
 - Tailwind CSS
 
-[Linked repo]: (https://github.com/ln56b/nestjs-mongodb-express-shopping-list)
