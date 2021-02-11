@@ -6,7 +6,7 @@
 
 - Provide a convenient way to store items inside of shopping lists
 
-- Available actions : add, edit, delete, markup 
+- Available actions : add, edit, delete, markout
 
 - [Linked repo](https://github.com/ln56b/nestjs-mongodb-express-shopping-list)
 : Connects with a Node.JS back-end (MongoDB database)
